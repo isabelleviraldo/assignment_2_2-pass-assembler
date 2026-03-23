@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include "ParseInput.h"
 using namespace std;
 
 
@@ -33,10 +33,13 @@ int main (int argc, char* argv[]) {
 
 		cout << "Processing " << filename << endl;
 		string line;
-		while (inputFile) {
-			// put pass 1 and 2 info here (or function calls)			
-
+		
+		// read file line by line until none left
+		while (getline(inputFile, line)) {
+			// put pass 1 and 2 info here (or function calls)
+			ParseInput parsedLine = parseSicLine(line);
 		}
 	}	
+
 
 }
