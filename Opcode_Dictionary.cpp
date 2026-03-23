@@ -12,7 +12,7 @@ struct opSpecs {
 };
 
 
-int main()
+void opcode()
 {
     // static const: assembler directive has set opcode
     static const unordered_map<string, opSpecs> opcodeDictionary = {

@@ -7,8 +7,6 @@ using namespace std;
 /*
  * Purpose: run test and print results
  *
- *
- * 
  */
 
 void runTest (string testName, string inputLine, string expectedLabel, string expectedOpcode, string expectedOperand, bool expectedEmpty) {
@@ -31,6 +29,7 @@ void runTest (string testName, string inputLine, string expectedLabel, string ex
 			cout << "\t Actual --> " << result.label << endl;
 			passed = false;
 		}
+
 		if (result.opcode != expectedOpcode){
 			cout << "FAILED: expected --> " << expectedOpcode << endl;
 			cout << "\tactual --> " << result.opcode << endl;
@@ -56,8 +55,7 @@ int main() {
         cout << "=== Starting Input Reader Tests ===" << endl << endl;
 
         // Test 1: Standard line with all three parts
-        //         // (Using \t to simulate tab characters from a text file)
-      
+        // (Using \t to simulate tab characters from a text file)
         runTest("Test 1: Standard Line", "SUM\tSTART\t0", "SUM", "START", "0", false); 
         // Test 2: Missing label (starts with a tab/space)                                 
         runTest("Test 2: No Label", "\tLDA\t#0", "", "LDA", "#0", false);
@@ -69,6 +67,6 @@ int main() {
         runTest("Test 5: Empty Line", "", "", "", "", true);
         // Test 6: A line containing only spaces and tabs
         runTest("Test 6: Whitespace Only", "   \t  \r", "", "", "", true);
-	cout << "=== All Tests Completed ===" << endl;
+		cout << "=== All Tests Completed ===" << endl;
 	return 0;
 }
