@@ -12,8 +12,7 @@ struct ParseInput {
 	string label;
 	string opcode;
 	string operand;
-}
-
+};
 ParseInput parseSicLine (string line);
 
 

@@ -3,13 +3,13 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "ParseInput.h"
+#include "read_input.h"
 using namespace std;
 
 
 ParseInput parseSicLine (string line){
 	ParseInput p;
-	original = line;	// keep copy of original line being read
+	p.original = line;	// keep copy of original line being read
 
 	// if line doesn't contain anything
 	if (line.empty()){
