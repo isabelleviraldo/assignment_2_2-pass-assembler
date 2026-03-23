@@ -38,6 +38,10 @@ int main (int argc, char* argv[]) {
 		while (getline(inputFile, line)) {
 			// put pass 1 and 2 info here (or function calls)
 			ParseInput parsedLine = parseSicLine(line);
+			// skip empty lines
+			if (parsedLine.emptyComment == true) {
+				continue;
+			}
 		}
 	}	
 
