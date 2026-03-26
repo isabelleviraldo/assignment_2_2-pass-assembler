@@ -4,12 +4,9 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include "Opcode_Dictionary.h"
 using namespace std;
 
-struct opSpecs {
-	int opcode;
-	int fmt;
-};
 
 
 void opcode()

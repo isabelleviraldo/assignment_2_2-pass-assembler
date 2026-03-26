@@ -42,12 +42,6 @@ ParseInput parseSicLine (string line){
 	// grab the operand
 	input >> p.operand;
 
-	// Testing to print and ensure results are correctly parsed
-	cout << "label = " << p.label << endl;
-	cout << "opcode = " << p.opcode << endl;
-	cout << "operand = " << p.operand << endl;
-	// use original comment to do tests 
-	// ADD UNIT TESTS HERE
 
 	return p;
 }
