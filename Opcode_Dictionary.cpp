@@ -1,5 +1,11 @@
-// Opcode_Dictionary.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*
+* Purpose: Opcode_Dictionary.cpp source file
+* Author: Steph Huynh and Isabelle Viraldo
+* Description: Contains opcode spec info in form of unordered_map
+* such as instruction, opcode, and format. opSpecs comes from .h file
+* which contains format of <int, int> (opcode, fmt)
+*
+*/
 
 #include <iostream>
 #include <string>

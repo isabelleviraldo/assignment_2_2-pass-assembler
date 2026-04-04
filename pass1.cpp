@@ -1,3 +1,11 @@
+/*
+* Purpose: pass1.cpp source file
+* Author: Steph Huynh and Isabelle Viraldo
+* Description: processes pass 1 by reading .sic file and parsing each line.
+* Creates .st file after it has processed all the directives and calculated LOCCTR
+*
+*/
+
 #include <string>
 #include <iostream>
 #include "pass1.h"
@@ -90,7 +98,7 @@ void runPass1(const string& filename) {
 		}
 
 	}
-	// Testing: 
+	// Testing:
 	cout << "\nFinal Hash Map State \n";
 	for (const auto& pair : symTab) {
 		cout << "Key: " << pair.first << "\t | LOCCTR: " << pair.second << "\n";

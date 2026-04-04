@@ -1,3 +1,12 @@
+/*
+* Purpose: read_input.cpp source file
+* Author: Steph Huynh and Isabelle Viraldo
+* Description: parses input file into: label, opcode, operand
+*
+*
+*
+*/
+
 #include <fstream>
 #include <iostream>
 #include <string>
