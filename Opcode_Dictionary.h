@@ -10,5 +10,6 @@ struct opSpecs {
 };
 
 
-const unorder_map<string, opSpecs> opcodeDictionary;
+bool getOpcodeSpecs(const string& mnemonic, opSpecs& specs);
+// const unorder_map<string, opSpecs> opcodeDictionary;
 #endif

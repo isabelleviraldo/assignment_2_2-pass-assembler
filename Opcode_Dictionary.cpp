@@ -9,7 +9,7 @@ using namespace std;
 
 
 
-void opcode()
+bool getOpcodeSpecs(const string& mnemonic, opSpecs& specs)
 {
     // static const: assembler directive has set opcode
     static const unordered_map<string, opSpecs> opcodeDictionary = {
@@ -73,6 +73,16 @@ void opcode()
         {"TIXR", {0xB8, 2}},
         {"WD", {0xDC, 3}}
     };
+
+    // use find() to search for mnemonic 
+    auto it = opcodeDictionary.find(mnemonic);
+
+    // check if search reached end of map without finding key
+    if (it != opcodeDictionary.end()) {
+        specs = it->second; // store data into spec variable
+        return true; // indicate success
+    }
+    return false;
 }
 
 

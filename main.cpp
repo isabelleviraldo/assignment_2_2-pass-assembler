@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include "read_input.h"
+#include "Opcode_Dictionary.h"
+#include "pass1.h"
 using namespace std;
 
 
@@ -20,31 +22,44 @@ int main(int argc, char* argv[]) {
 	{
 		string filename = argv[i];
 
-		// open file to read 
-		ifstream inputFile(filename.c_str());
+		// begin pass 1 to read file and such
+		runPass1(filename);
 
-		//error handling for input file
-		if (!inputFile) {
-			cerr << "Error: could not open input file " << filename << endl;
-			cerr << "Terminating program" << endl;
-			return 1;
+		//// open file to read 
+		//ifstream inputFile(filename.c_str());
 
-		}
+		////error handling for input file
+		//if (!inputFile) {
+		//	cerr << "Error: could not open input file " << filename << endl;
+		//	cerr << "Terminating program" << endl;
+		//	return 1;
 
-		cout << "Processing " << filename << endl;
-		string line;
+		//}
 
-		// read file line by line until none left
-		while (getline(inputFile, line)) {
-			// put pass 1 and 2 info here (or function calls)
-			ParseInput parsedLine = parseSicLine(line);
-			// skip empty lines
-			if (parsedLine.emptyComment == true) {
-				continue;
-			}
-			cout << "label = " << parsedLine.label << endl;
-			cout << "opcode = " << parsedLine.opcode << endl;
-			cout << "operand = " << parsedLine.operand << endl;
-		}
+		//cout << "Processing " << filename << endl;
+		//string line;
+
+		//// read file line by line until none left
+		//while (getline(inputFile, line)) {
+		//	// put pass 1 and 2 info here (or function calls)
+		//	ParseInput parsedLine = parseSicLine(line);
+		//	// skip empty lines
+		//	if (parsedLine.emptyComment == true) {
+		//		continue;
+		//	}
+		//	cout << "label = " << parsedLine.label << endl;
+		//	cout << "opcode = " << parsedLine.opcode << endl;
+		//	cout << "operand = " << parsedLine.operand << endl;
+
+		//	opSpecs currentInstruction;
+		//	if (getOpcodeSpecs(parsedLine.opcode, currentInstruction)) {
+		//		cout << "Valid instruction found. Hex: " << hex << currentInstruction.opcode
+		//			<< " | Format: " << dec << currentInstruction.fmt << endl;
+		//	}
+		//	else {
+		//		cout << "not a valid instruction/directive\n";
+		//	}
+		//}
 	}
+	return 0;
 }
