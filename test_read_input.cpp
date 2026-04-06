@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "read_input.h"
+#include "pass1.h"
 
 using namespace std;
 
@@ -52,21 +53,25 @@ void runTest (string testName, string inputLine, string expectedLabel, string ex
 
 
 int main() {
-        cout << "=== Starting Input Reader Tests ===" << endl << endl;
+    cout << "=== Starting Input Reader Tests ===" << endl << endl;
 
-        // Test 1: Standard line with all three parts
-        // (Using \t to simulate tab characters from a text file)
-        runTest("Test 1: Standard Line", "SUM\tSTART\t0", "SUM", "START", "0", false); 
-        // Test 2: Missing label (starts with a tab/space)                                 
-        runTest("Test 2: No Label", "\tLDA\t#0", "", "LDA", "#0", false);
-        // Test 3: Opcode only (no operand, like RSUB)
-        runTest("Test 3: No Operand", "\tRSUB", "", "RSUB", "", false);
-        // Test 4: Literal pool initialization
-        runTest("Test 4: Literal/Directive", "*\t=C'EOF'", "*", "=C'EOF'", "", false);
-        // Test 5: Completely empty string
-        runTest("Test 5: Empty Line", "", "", "", "", true);
-        // Test 6: A line containing only spaces and tabs
-        runTest("Test 6: Whitespace Only", "   \t  \r", "", "", "", true);
-		cout << "=== All Tests Completed ===" << endl;
+    // Test 1: Standard line with all three parts
+    // (Using \t to simulate tab characters from a text file)
+    runTest("Test 1: Standard Line", "SUM\tSTART\t0", "SUM", "START", "0", false); 
+    // Test 2: Missing label (starts with a tab/space)                                 
+    runTest("Test 2: No Label", "\tLDA\t#0", "", "LDA", "#0", false);
+    // Test 3: Opcode only (no operand, like RSUB)
+    runTest("Test 3: No Operand", "\tRSUB", "", "RSUB", "", false);
+    // Test 4: Literal pool initialization
+    runTest("Test 4: Literal/Directive", "*\t=C'EOF'", "*", "=C'EOF'", "", false);
+    // Test 5: Completely empty string
+    runTest("Test 5: Empty Line", "", "", "", "", true);
+    // Test 6: A line containing only spaces and tabs
+    runTest("Test 6: Whitespace Only", "   \t  \r", "", "", "", true);
+	cout << "=== All Tests Completed ===" << endl;
+
+
+	runPass1("test.txt");
+
 	return 0;
 }

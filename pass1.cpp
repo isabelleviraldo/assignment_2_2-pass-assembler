@@ -15,6 +15,7 @@
 #include <iostream>
 #include <unordered_map>
 #include "Opcode_Dictionary.h"
+#include "hex_helpers.h"
 using namespace std;
 
 
@@ -43,6 +44,13 @@ void runPass1(const string& filename) {
 	while (getline(inputFile, line)) {
 		// put pass 1 and 2 info here (or function calls)
 		ParseInput parsedLine = parseSicLine(line);
+
+		//TEST PRINTOUTS
+		cout << "\nOriginal line: " << parsedLine.original << endl;
+		cout << "Label:   [" << parsedLine.label << "]" << endl;
+		cout << "Opcode:  [" << parsedLine.opcode << "]" << endl;
+		cout << "Operand: [" << parsedLine.operand << "]" << endl;
+
 		// skip empty lines
 		if (parsedLine.emptyComment == true) {
 			continue;
@@ -64,38 +72,36 @@ void runPass1(const string& filename) {
 			// change string --> int and initialize starting variable with starting address
 			LOCCTR = stoi(parsedLine.operand, nullptr, 16);
 		}
-
+	
 		// add label and location counter to symTab
 		if (!parsedLine.label.empty()) {
 			symTab[parsedLine.label] = LOCCTR;
 		}
-
+	
 		opSpecs currInstruction;
-
-		if (getOpcodeSpecs(searchLine, currInstruction)) {
-			if (fmt4) {
-				LOCCTR += 4;
+				
+			if (getOpcodeSpecs(searchLine, currInstruction)) {
+				if (fmt4) {
+					LOCCTR += 4;
+				}
+				else {
+					LOCCTR += currInstruction.fmt;
+				}
 			}
-			else {
-				LOCCTR += currInstruction.fmt;
+			else if (searchLine != "START" && searchLine != "END" && searchLine != "BASE") {
+				if (searchLine == "WORD") {
+					LOCCTR += 3;
+				}
+				else if (searchLine == "RESW") {
+					LOCCTR += 3 * parseOperandValue(parsedLine.operand);
+				}
+				else if (searchLine == "RESB") {
+					LOCCTR += parseOperandValue(parsedLine.operand);
+				}
+				else if (searchLine == "BYTE") {
+					LOCCTR += getByteDirectiveLength(parsedLine.operand);
+				}
 			}
-		}
-		else if (searchLine != "START") {
-			if (searchLine == "WORD") {
-				LOCCTR += 3;
-			}
-			else if (searchLine == "RESW") {
-				// WORD = 3 (bytes) * # of reserved words
-				LOCCTR += 3 * stoi(parsedLine.operand);
-			}
-			else if (searchLine == "RESB") {
-				LOCCTR += stoi(parsedLine.operand);
-			}
-			else if (searchLine == "BYTE")
-			{
-				//add logic here to handle BYTE
-			}
-		}
 
 	}
 	// Testing:
