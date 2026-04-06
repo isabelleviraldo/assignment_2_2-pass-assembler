@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
+#include <unordered_set>
 #include "Opcode_Dictionary.h"
 using namespace std;
 
@@ -92,3 +93,35 @@ bool getOpcodeSpecs(const string& mnemonic, opSpecs& specs)
 }
 
 
+bool isDirective(const string& mnemonic)
+{
+    static const unordered_set<string> directives = {
+        "START", "END", "BASE", "NOBASE",
+        "WORD", "RESW", "RESB", "BYTE"
+    };
+
+    return directives.find(mnemonic) != directives.end();
+}
+
+bool getRegisterNumber(const string& regName, int& regNum)
+{
+    static const unordered_map<string, int> regMap = {
+        {"A", 0},
+        {"X", 1},
+        {"L", 2},
+        {"B", 3},
+        {"S", 4},
+        {"T", 5},
+        {"F", 6},
+        {"PC", 8},
+        {"SW", 9}
+    };
+
+    auto it = regMap.find(regName);
+    if (it == regMap.end()) {
+        return false;
+    }
+
+    regNum = it->second;
+    return true;
+}

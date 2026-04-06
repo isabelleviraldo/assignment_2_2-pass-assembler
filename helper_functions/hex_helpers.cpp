@@ -1,6 +1,8 @@
 #include "hex_helpers.h"
 #include <stdexcept>
 #include <cctype>
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -57,4 +59,29 @@ int getByteDirectiveLength(const string& operand) {
     }
 
     throw invalid_argument("Invalid BYTE operand format: " + operand);
+}
+
+string toHexString(uint32_t value, int width) {
+    stringstream ss;
+    ss << uppercase << hex << setw(width) << setfill('0') << value;
+    return ss.str();
+}
+
+int byteObjectValue(const string& operand) {
+    if (isHexLiteral(operand)) {
+        string hexDigits = operand.substr(2, operand.length() - 3);
+        return stoi(hexDigits, nullptr, 16);
+    }
+
+    if (isCharLiteral(operand)) {
+        string chars = operand.substr(2, operand.length() - 3);
+
+        int value = 0;
+        for (char c : chars) {
+            value = (value << 8) | static_cast<unsigned char>(c);
+        }
+        return value;
+    }
+
+    throw invalid_argument("invalid BYTE operand");
 }
