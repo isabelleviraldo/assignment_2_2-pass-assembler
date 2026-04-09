@@ -3,6 +3,7 @@
 
 #include <string>
 using namespace std;
+
 struct ParseInput {
 	bool emptyComment = false;
 	int lineCt = 0;
@@ -12,6 +13,13 @@ struct ParseInput {
 	string label;
 	string opcode;
 	string operand;
+
+	// hold info from helper functions
+	string hex;
+	string cleanedOperand;
+	bool isIndexed = false;
+	bool isImmediate = false;
+	bool isIndirect = false;
 };
 ParseInput parseSicLine (string line);
 

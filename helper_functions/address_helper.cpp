@@ -1,3 +1,9 @@
+/*
+* Purpose: address_helper .cpp source file
+* Author: Steph Huynh and Isabelle Viraldo
+* Description: determining PC relative, base relative for pass 2
+*/
+
 #include "address_helper.h"
 
 #include <cctype>
@@ -5,6 +11,7 @@
 
 using namespace std;
 
+// removes formatting characters so we can look up symbol names
 string cleanOperand(const string& operand) {
     string result = operand;
 
@@ -20,12 +27,31 @@ string cleanOperand(const string& operand) {
     return result;
 }
 
+// true of instruction is indexed
 bool isIndexedOperand(const string& operand) {
     return operand.find(",X") != string::npos;
 }
 
+// true if instruction is indirect
+bool isIndirectOperand(const string& operand) {
+    if (operand.empty()) {
+        return false;
+    }
+
+    return operand[0] == '@';
+}
+
+// true if immediate
+bool isImmediateOperand(const string& operand) {
+    if (operand.empty()) {
+        return false;
+    }
+    return operand[0] == '#';
+}
+
+// true uf immediate and strictly checks immediate CONSTANT
 bool isImmediateConstantOperand(const string& operand) {
-    if (operand.empty() || operand[0] != '#') {
+    if (!isImmediateOperand(operand)) {
         return false;
     }
 
@@ -43,6 +69,8 @@ bool isImmediateConstantOperand(const string& operand) {
     return true;
 }
 
+
+// search symTab; true if found and updates address reference
 bool lookupSymbolAddress(
     const string& operand,
     const unordered_map<string, int>& symTab,
@@ -59,11 +87,15 @@ bool lookupSymbolAddress(
     return true;
 }
 
+
+// calculate displacement of PC
 int usingPC(int targetAddress, int locctr) {
     int pc = locctr + 3;
     return targetAddress - pc;
 }
 
+
+// check if PC displacement fits 12 bit signed space
 bool pcWorks(int targetAddress, int locctr, int& displacement) {
     int disp = usingPC(targetAddress, locctr);
 
@@ -75,10 +107,13 @@ bool pcWorks(int targetAddress, int locctr, int& displacement) {
     return false;
 }
 
+// calculate displacement for base relative
 int usingBase(int targetAddress, int baseAddress) {
     return targetAddress - baseAddress;
 }
 
+
+// checks if base fits 12 bit unsigned space
 bool baseWorks(int targetAddress, int baseAddress, int& displacement) {
     int disp = usingBase(targetAddress, baseAddress);
 
@@ -90,6 +125,8 @@ bool baseWorks(int targetAddress, int baseAddress, int& displacement) {
     return false;
 }
 
+
+// get number value from an immediate constant string
 bool immediateAddress(const string& operand, int& value) {
     if (!isImmediateConstantOperand(operand)) {
         return false;
@@ -100,6 +137,8 @@ bool immediateAddress(const string& operand, int& value) {
     return true;
 }
 
+
+// decide what addressing mode to use for pass 2 machine code
 AddressResult calculateAddress(
     const string& operand,
     int locctr,
@@ -153,6 +192,7 @@ AddressResult calculateAddress(
     return result;
 }
 
+// mask displacement to correct bit width
 uint32_t encodeAddressField(int value, int width) {
     if (width <= 0 || width > 32) {
         throw invalid_argument("invalid address width");

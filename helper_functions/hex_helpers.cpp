@@ -1,3 +1,11 @@
+/*
+* Purpose: hex_helpers .cpp source file
+* Author: Steph Huynh and Isabelle Viraldo
+* Description: Gives us helper functions to handle hex conversions 
+* 
+*
+*/
+
 #include "hex_helpers.h"
 #include <stdexcept>
 #include <cctype>
@@ -30,10 +38,10 @@ int parseOperandValue(const string& operand) {
             }
         }
 
-        return stoi(hexDigits, nullptr, 16);
+        return stoi(hexDigits, nullptr, 16);    // convert string to hex/base 16
     }
 
-    return stoi(operand);
+    return stoi(operand);   // if not hex, convert to base 10/decimal
 }
 
 int getByteDirectiveLength(const string& operand) {

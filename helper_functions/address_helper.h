@@ -21,6 +21,8 @@ struct AddressResult {
 string cleanOperand(const string& operand);
 bool isIndexedOperand(const string& operand);
 bool isImmediateConstantOperand(const string& operand);
+bool isImmediateOperand(const string& operand);
+bool isIndirectOperand(const string& operand);
 
 bool lookupSymbolAddress(
     const string& operand,

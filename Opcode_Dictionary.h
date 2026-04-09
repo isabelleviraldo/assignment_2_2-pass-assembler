@@ -11,7 +11,6 @@ struct opSpecs {
 
 
 bool getOpcodeSpecs(const string& mnemonic, opSpecs& specs);
-// const unorder_map<string, opSpecs> opcodeDictionary;
 bool isDirective(const string& mnemonic);
 bool getRegisterNumber(const string& regName, int& regNum);
 
