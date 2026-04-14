@@ -2,6 +2,7 @@
 #include <string>
 #include "read_input.h"
 #include "pass1.h"
+#include "pass2.h"
 
 using namespace std;
 
@@ -72,7 +73,14 @@ int main() {
 	cout << "=== All Tests Completed ===" << endl;
 
 
-	runPass1("test.txt");
+	Pass1OutputFiles files = runPass1("test.txt");
 
+	if (files.listingFile.empty() || files.symtabFile.empty()) {
+	    cerr << "Pass 1 failed.\n";
+	    return 1;
+	}	
+
+	runPass2("test.txt", files.listingFile, files.symtabFile);
+	
 	return 0;
 }
