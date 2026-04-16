@@ -4,5 +4,65 @@ Class Information: CS530, Spring 2026
 Assignment Information: Assignment #2, Limited XE Assembler
 Filename: README
 
-
+-----------------------------------------------
 File manifest:
+-----------------------------------------------
+- Helper Function folder
+	- address_helper.cpp
+	- address_helper.h
+	- hex_helpers.cpp
+	- hex_helpers.h
+	- obj_code.h
+	- obj_code.cpp
+	- read_input.cpp
+	- read_input.h
+	- test_address_helper.cpp
+	- test_hex_helpers.cpp
+	- test_obj_code.cpp
+	- test_read_input.cpp
+
+- Makefile
+- main.cpp
+- Opcode_Dictionary.cpp
+- Opcode_Dictionary.h
+- pass1.cpp
+- pass1.h
+- pass2.cpp
+- pass2.h
+- README
+- test.l
+- test.st
+- test.txt
+
+
+----------------------------------------
+Compile Instructions
+----------------------------------------
+Make sure all files and references to said files are in (and named as) specific folders/directories (ex: helper_functions/...)
+
+
+---------------------------------------- 
+Operating Instructions
+----------------------------------------
+
+
+
+
+----------------------------------------
+Design Decisions
+----------------------------------------
+
+
+
+-----------------------------------------
+Bugs
+-----------------------------------------
+
+
+-----------------------------------------
+Lesons Learned
+-----------------------------------------
+
+
+
+
