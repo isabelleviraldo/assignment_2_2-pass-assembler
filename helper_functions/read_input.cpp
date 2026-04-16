@@ -51,7 +51,6 @@ ParseInput parseSicLine (string line){
 	}
 	
 	// grab the operand
-	//TODO: change this so if it says X'F' then the value is just F (in hex) but if it is just a number (#100 or 100 or whatever, then it will pass the number value decimal -> hexidecimal)
 
 	input >> p.operand;
 

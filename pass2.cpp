@@ -1,6 +1,6 @@
 /*
 * Purpose: pass2.cpp source file
-* Author: Steph Huynh and Isabelle Viraldo
+* Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
 * Description: reads pass1 .l and .st files, rebuilds the needed data,
 * and writes a .l file with object code appended to each source line.
 */

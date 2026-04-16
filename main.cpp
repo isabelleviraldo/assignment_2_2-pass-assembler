@@ -1,3 +1,8 @@
+/*
+* Purpose: main.cpp
+* Authors: Steph Huynh(cssc2524) and Isabella Viraldo(cssc2555)
+* Description: where our main program runs from.
+*/
 #include <iostream>
 #include <fstream>
 #include <string>

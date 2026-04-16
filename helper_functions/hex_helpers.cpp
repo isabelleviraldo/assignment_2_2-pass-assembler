@@ -1,6 +1,6 @@
 /*
 * Purpose: hex_helpers .cpp source file
-* Author: Steph Huynh and Isabelle Viraldo
+* Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
 * Description: Gives us helper functions to handle hex conversions 
 * 
 *

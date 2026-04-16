@@ -1,6 +1,6 @@
 /*
 * Purpose: Opcode_Dictionary.cpp source file
-* Author: Steph Huynh and Isabelle Viraldo
+** Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
 * Description: Contains opcode spec info in form of unordered_map
 * such as instruction, opcode, and format. opSpecs comes from .h file
 * which contains format of <int, int> (opcode, fmt)

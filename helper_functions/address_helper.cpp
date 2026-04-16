@@ -1,6 +1,6 @@
 /*
 * Purpose: address_helper .cpp source file
-* Author: Steph Huynh and Isabelle Viraldo
+* Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
 * Description: determining PC relative, base relative for pass 2
 */
 

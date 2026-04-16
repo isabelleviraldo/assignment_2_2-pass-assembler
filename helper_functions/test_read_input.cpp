@@ -1,3 +1,7 @@
+/*
+* Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
+*/
+
 #include <iostream>
 #include <string>
 #include "read_input.h"

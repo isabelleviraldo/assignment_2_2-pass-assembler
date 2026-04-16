@@ -1,6 +1,6 @@
 /*
 * Purpose: pass1.cpp source file
-* Author: Steph Huynh and Isabelle Viraldo
+* * Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
 * Description: processes pass 1 by reading .sic file and parsing each line.
 * Creates .st file after it has processed all the directives and calculated LOCCTR.
 * Also creates a .l listing file with addresses.

@@ -1,3 +1,10 @@
+/*
+* Purpose: obj_code.cpp source file
+* Authors: Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
+* Description: helps with pass 2 of our program. Allows us to get nixpbe bits and formulate addresses for each
+* 
+*/
+
 #include "obj_code.h"
 
 #include <sstream>
