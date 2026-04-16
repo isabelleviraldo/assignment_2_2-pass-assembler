@@ -5,6 +5,7 @@
 #include <vector>
 #include <unordered_map>
 #include "helper_functions/read_input.h"
+#include "helper_functions/hex_helpers.h"
 
 using namespace std;
 
