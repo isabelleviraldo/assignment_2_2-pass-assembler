@@ -1,5 +1,8 @@
 /*
-* * Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
+* Purpose: test_object_code.cpp source file
+* *Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Class Info: CS 530, Spring 2026
+* Assignment Info: Assignment #2, Limited XE Assembler
 */
 
 #include <iostream>

@@ -1,6 +1,8 @@
 /*
 * Purpose: read_input.cpp source file
-* Author: Steph Huynh and Isabelle Viraldo
+* Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Class Info: CS 530, Spring 2026
+* Assignment Info: Assignment #2, Limited XE Assembler
 * Description: parses input file into: label, opcode, operand
 *
 *

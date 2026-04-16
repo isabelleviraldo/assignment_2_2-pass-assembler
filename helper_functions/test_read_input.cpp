@@ -8,10 +8,11 @@
 
 using namespace std;
 
-/*
- * Purpose: run test and print results
+/*Purpose: run test and print results
  * 
- * Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
+*Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Class Info: CS 530, Spring 2026
+* Assignment Info: Assignment #2, Limited XE Assembler
  */
 
 void runTest (string testName, string inputLine, string expectedLabel, string expectedOpcode, string expectedOperand, bool expectedEmpty) {

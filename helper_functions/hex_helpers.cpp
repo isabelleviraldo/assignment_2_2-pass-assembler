@@ -1,6 +1,8 @@
 /*
 * Purpose: hex_helpers .cpp source file
-* Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
+* Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Class Info: CS 530, Spring 2026
+* Assignment Info: Assignment #2, Limited XE Assembler
 * Description: Gives us helper functions to handle hex conversions 
 * 
 *
