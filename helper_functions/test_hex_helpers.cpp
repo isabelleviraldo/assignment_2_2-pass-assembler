@@ -29,6 +29,7 @@ int main()
 	assert(toHexString(15, 2) == "0F");
 	assert(toHexString(10, 4) == "000A");
 
-	assert(byteObjectValue("C'EOF'") == 4542454);
+	assert(byteObjectValue("C'EOF'") == 0x454F46);
 
+	cout << "SUCCESS test run for hex_helpers" << endl;
 }

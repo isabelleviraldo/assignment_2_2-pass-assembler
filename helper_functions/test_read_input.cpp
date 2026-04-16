@@ -1,6 +1,4 @@
-/*
-* Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
-*/
+
 
 #include <iostream>
 #include <string>
@@ -13,7 +11,7 @@ using namespace std;
 /*
  * Purpose: run test and print results
  * 
- *
+ * Authors: Steph Huynh (cssc2524) and Isabella Viraldo (cssc2555)
  */
 
 void runTest (string testName, string inputLine, string expectedLabel, string expectedOpcode, string expectedOperand, bool expectedEmpty) {

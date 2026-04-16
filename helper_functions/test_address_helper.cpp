@@ -27,7 +27,7 @@ int main() {
 	assert(isIndirectOperand("PTR") == false);
 	assert(isImmediateOperand("#100") == true);
 	assert(isImmediateOperand("100") == false);
-	assert(isImmediateConstantOperand("#LENGTH") == true);
+	assert(isImmediateConstantOperand("#LENGTH") == false);
 
 	unordered_map<string, int> exSymTab = {
 		{"TABLE", 0x1000},
@@ -48,5 +48,6 @@ int main() {
 	assert(pcWorks(10, 0, disp) == true);
 	assert(disp == 7);
 
+	cout << "SUCCESS test run for address_helper" << endl;
 
 }

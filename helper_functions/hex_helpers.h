@@ -20,5 +20,6 @@ bool isHexLiteral(const string& operand);
 bool isCharLiteral(const string& operand);
 
 string toHexString(uint32_t value, int width);
+int byteObjectValue(const string& operand);
 
 #endif
