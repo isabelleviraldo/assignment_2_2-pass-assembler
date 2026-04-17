@@ -1,5 +1,5 @@
-Name: Steph Huynh and Isabella Viraldo
-Class Acounts: cssc2524@edoras.sdsu.edu (Steph) and cssc2555@edoras.sdsu.edu (Isabella)
+Name: Steph Huynh and Isabelle Viraldo
+Class Acounts: cssc2524@edoras.sdsu.edu (Steph) and cssc2555@edoras.sdsu.edu (Isabelle)
 Class Information: CS530, Spring 2026
 Assignment Information: Assignment #2, Limited XE Assembler
 Filename: README
@@ -40,10 +40,19 @@ Compile Instructions
 ----------------------------------------
 Make sure all files and references to said files are in (and named as) specific folders/directories (ex: helper_functions/...)
 
+Navigate to project directory: ~/a2
+by running: 
+		cd a2
+Then run:
+		make
+
+This will genereate the exe. files "xle" and "test"
 
 ---------------------------------------- 
 Operating Instructions
 ----------------------------------------
+To run program from shell's command line:
+
 
 
 
