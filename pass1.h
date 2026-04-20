@@ -4,8 +4,9 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "helper_functions/read_input.h"
-#include "helper_functions/hex_helpers.h"
+
+#include "read_input.h"
+#include "hex_helpers.h"
 
 using namespace std;
 

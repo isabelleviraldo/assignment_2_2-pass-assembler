@@ -8,54 +8,60 @@ Filename: README
 File manifest:
 -----------------------------------------------
 - Helper Function folder
-	- address_helper.cpp
-	- address_helper.h
-	- hex_helpers.cpp
-	- hex_helpers.h
-	- obj_code.h
-	- obj_code.cpp
-	- read_input.cpp
-	- read_input.h
+	- address_helper.cpp / .h
+	- hex_helpers.cpp / .h
+	- obj_code.cpp / .h
+	- read_input.cpp / .h
+
+- test_files folder
 	- test_address_helper.cpp
 	- test_hex_helpers.cpp
 	- test_obj_code.cpp
-	- test_read_input.cpp
+	- test_parser.cpp
 
-- Makefile
 - main.cpp
-- Opcode_Dictionary.cpp
-- Opcode_Dictionary.h
-- pass1.cpp
-- pass1.h
-- pass2.cpp
-- pass2.h
+- Opcode_Dictionary.cpp / .h
+- pass1.cpp / .h
+- pass2.cpp / .h
 - README
-- test.l
-- test.st
 - test.txt
 
 
 ----------------------------------------
 Compile Instructions
 ----------------------------------------
-Make sure all files and references to said files are in (and named as) specific folders/directories (ex: helper_functions/...)
-
-Navigate to project directory: ~/a2
-by running: 
-		cd a2
+To compile main file, navigate to project directory: 
+	cd ~/a2
 Then run:
-		make
+	make
 
-This will genereate the exe. files "xle" and "test"
+This will genereate the .exe file:
+	xle
+
+
+To compile test files, navigate to test directory:
+	cd ~/a2/test_files
+Then run:
+	make
+
+This will generate the .exe files:
+	test_addr test_hex test_obj test_read
+
+
 
 ---------------------------------------- 
 Operating Instructions
 ----------------------------------------
-To run program from shell's command line:
+To run main program:
+	cd ~/a2
+	./xle
 
-
-
-
+To run test programs:
+	cd ~/a2/test_files
+	./test_addr 
+	./test_hex 
+	./test_obj 
+	./test_read
 
 ----------------------------------------
 Design Decisions

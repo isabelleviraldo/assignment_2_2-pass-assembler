@@ -19,9 +19,9 @@
 #include <cctype>
 
 #include "Opcode_Dictionary.h"
-#include "helper_functions/address_helper.h"
-#include "helper_functions/hex_helpers.h"
-#include "helper_functions/read_input.h"
+#include "address_helper.h"
+#include "hex_helpers.h"
+#include "read_input.h"
 #include "obj_code.h"
 
 using namespace std;

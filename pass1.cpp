@@ -9,17 +9,19 @@
 *
 */
 
+#include "pass1.h"
+
 #include <string>
 #include <iostream>
-#include "pass1.h"
-#include "helper_functions/read_input.h"
 #include <fstream>
 #include <iomanip>
 #include <unordered_map>
-#include "Opcode_Dictionary.h"
-#include "helper_functions/hex_helpers.h"
-#include "helper_functions/address_helper.h"
 #include <vector>
+
+#include "address_helper.h"
+#include "hex_helpers.h"
+#include "read_input.h"
+#include "Opcode_Dictionary.h"
 
 using namespace std;
 

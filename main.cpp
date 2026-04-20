@@ -6,8 +6,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #include "pass1.h"
-#include <pass2.h>
+#include "pass2.h"
+
 using namespace std;
 
 
