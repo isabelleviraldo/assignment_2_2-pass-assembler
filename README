@@ -45,7 +45,7 @@ Then run:
 	make
 
 This will generate the .exe files:
-	test_addr test_hex test_obj test_read
+	test_addr test_hex test_obj test_parser
 
 
 
@@ -61,7 +61,7 @@ To run test programs:
 	./test_addr 
 	./test_hex 
 	./test_obj 
-	./test_read
+	./test_parser
 
 ----------------------------------------
 Design Decisions
