@@ -34,16 +34,13 @@ To compile main file, navigate to project directory:
 	cd ~/a2
 Then run:
 	make
-
 This will genereate the .exe file:
-	xle
-
+	lxe
 
 To compile test files, navigate to test directory:
 	cd ~/a2/test_files
 Then run:
 	make
-
 This will generate the .exe files:
 	test_addr test_hex test_obj test_parser
 
@@ -54,7 +51,7 @@ Operating Instructions
 ----------------------------------------
 To run main program:
 	cd ~/a2
-	./xle
+	./lxe test.txt	
 
 To run test programs:
 	cd ~/a2/test_files
@@ -66,18 +63,32 @@ To run test programs:
 ----------------------------------------
 Design Decisions
 ----------------------------------------
+Data structure decisions: we chose to use a hash table to implement our symtab and opcode table. This ensures easy lookups.
 
+Bit Masking classes: instead of manual string manipulation for machine code, we used classes in obj_code.cpp
+to set our NIXBPE bits, ensuring that our math is correct for the object code.
+
+Literal Pool management: We implemented a safety net at the end of Pass1 to make sure that all literals would be handled and properly calculated before we reached the END.
+
+Two Pass architecture: Pass 1 generaetes a symbol table and intermediate listing file while pass 2 is able to build off that draft listing file, 
+calculate the machine code, and create the final listing file. 
+
+We separated each part of our program into test_files and helper_functions and the main directory contains the pass1, pass2, and opcode table that we need. 
+This ensures that we keep our codes neat and so we can locate certain features that we may need to fix. It ensures scalability and makes our code easier to read.
 
 
 -----------------------------------------
 Bugs
 -----------------------------------------
-
+No known bugs. The assembler correctly handles different addressing modes and such.
 
 -----------------------------------------
 Lesons Learned
 -----------------------------------------
-
+Flag Logic: implementing how to incorporate NIXPBE flags and how to change from format 3/4
+File I/O: building the intermediate files of .l and .st and ensuring that formatting stays compatiable between compiler passes
+Displacement: Understanding how to use LOCCTR and handling how to calculate displacement
+Literal Table: 
 
 
 
