@@ -1,20 +1,26 @@
+/*
+* Purpose: obj_code.h source file
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
+* Class Info: CS 530, Spring 2026
+* Assignment Info: Assignment #2, Limited XE Assembler
+* 
+* Description: helps with pass 2 of our program. Allows us to get nixpbe bits and formulate addresses for each
+*/
+
 #ifndef OBJ_CODE_H
 #define OBJ_CODE_H
 
 #include <cstdint>
-#include <string>
 #include <stdexcept>
 
-/*
-    ObjectCode
 
-    This class mainly just works as a handler for editing the object code, no logic pass1/2 - wise
-    here, just provides the tools to modify the bits as needed with helper functions
 
-    Upon object creation:
-    Format is already known because the correct subclass is being created directly
-*/
+//This class mainly just works as a handler for editing the object code, no logic pass1/2 - wise
+//here, just provides the tools to modify the bits as needed with helper functions
 
+//Upon object creation:
+//Format is already known because the correct subclass is being created directly
 class ObjectCode {
 public:
     virtual ~ObjectCode() = default;
@@ -57,7 +63,10 @@ private:
     int bitCount_;
 
 private:
+    // Converts a logical bit index to its corresponding shift position
     int logicalToShift(int logicalIndex) const;
+
+    // Generates a bitmask covering the active bit width of the object code
     uint32_t widthMask() const;
 
     //make sure that the values make sense before converting, simple error checks

@@ -1,12 +1,13 @@
 /*
 * Purpose: pass1.cpp source file
-*Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
+*
 * Description: processes pass 1 by reading .sic file and parsing each line.
 * Creates .st file after it has processed all the directives and calculated LOCCTR.
-* Also creates a .l listing file with addresses.
-*
+* Also creates a .l listing file with addresses
 */
 
 #include "pass1.h"
@@ -15,11 +16,9 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <unordered_map>
-#include <vector>
 
 #include "address_helper.h"
-#include "hex_helpers.h"
+#include "hex_helper.h"
 #include "read_input.h"
 #include "Opcode_Dictionary.h"
 

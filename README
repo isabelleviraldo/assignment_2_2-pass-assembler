@@ -1,21 +1,21 @@
-Name: Steph Huynh and Isabelle Viraldo
-Class Acounts: cssc2524@edoras.sdsu.edu (Steph) and cssc2555@edoras.sdsu.edu (Isabelle)
-Class Information: CS530, Spring 2026
-Assignment Information: Assignment #2, Limited XE Assembler
-Filename: README
+Authors: Steph Huynh (cssc2524) (824058671)
+         Isabelle Viraldo (cssc2555) (828115945)
+Class Info: CS 530, Spring 2026
+Assignment Info: Assignment #2, Limited XE Assembler
+Description: README
 
 -----------------------------------------------
 File manifest:
 -----------------------------------------------
 - Helper Function folder
 	- address_helper.cpp / .h
-	- hex_helpers.cpp / .h
+	- hex_helper.cpp / .h
 	- obj_code.cpp / .h
 	- read_input.cpp / .h
 
 - test_files folder
 	- test_address_helper.cpp
-	- test_hex_helpers.cpp
+	- test_hex_helper.cpp
 	- test_obj_code.cpp
 	- test_parser.cpp
 
@@ -24,7 +24,7 @@ File manifest:
 - pass1.cpp / .h
 - pass2.cpp / .h
 - README
-- test.txt
+- input_file.sic
 
 
 ----------------------------------------
@@ -51,7 +51,7 @@ Operating Instructions
 ----------------------------------------
 To run main program:
 	cd ~/a2
-	./lxe test.txt	
+	./lxe input_file.sic
 
 To run test programs:
 	cd ~/a2/test_files

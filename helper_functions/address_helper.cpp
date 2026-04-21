@@ -1,9 +1,11 @@
 /*
-* Purpose: address_helper .cpp source file
-* Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Purpose: address_helper.cpp source file
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
-* Description: determining PC relative, base relative for pass 2
+*
+* Description: address helper functions for determining PC relative, base relative for pass 2
 */
 
 #include "address_helper.h"
@@ -51,7 +53,7 @@ bool isImmediateOperand(const string& operand) {
     return operand[0] == '#';
 }
 
-// true uf immediate and strictly checks immediate CONSTANT
+// true if immediate and strictly checks immediate CONSTANT
 bool isImmediateConstantOperand(const string& operand) {
     if (!isImmediateOperand(operand)) {
         return false;

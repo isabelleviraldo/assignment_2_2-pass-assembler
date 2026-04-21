@@ -1,8 +1,10 @@
 /*
 * Purpose: pass2.cpp source file
-* *Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
+*
 * Description: reads pass1 .l and .st files, rebuilds the needed data,
 * and writes a .l file with object code appended to each source line.
 */
@@ -11,7 +13,6 @@
 
 #include <fstream>
 #include <iostream>
-#include <iomanip>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -20,7 +21,7 @@
 
 #include "Opcode_Dictionary.h"
 #include "address_helper.h"
-#include "hex_helpers.h"
+#include "hex_helper.h"
 #include "read_input.h"
 #include "obj_code.h"
 

@@ -1,10 +1,11 @@
 /*
-* Purpose: test_parser.cpp
-* *Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Purpose: Testing file for test_parser.cpp
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
-* Description: verify parsing and opcode lookup
-* independently from the main Pass 1 and Pass 2 workflow.
+*
+* Description: Ensure test_parser.cpp runs properly
 */
 
 

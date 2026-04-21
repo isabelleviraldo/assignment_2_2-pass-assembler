@@ -1,7 +1,18 @@
+/*
+* Purpose: read_input.h source file
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
+* Class Info: CS 530, Spring 2026
+* Assignment Info: Assignment #2, Limited XE Assembler
+*
+* Description: parses input file into: label, opcode, operand
+*/
+
 #ifndef READ_INPUT_H
 #define READ_INPUT_H
 
 #include <string>
+
 using namespace std;
 
 struct ParseInput {

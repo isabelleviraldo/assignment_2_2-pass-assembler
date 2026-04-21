@@ -1,44 +1,43 @@
 /*
 * Purpose: obj_code.cpp source file
-* Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
-* Description: helps with pass 2 of our program. Allows us to get nixpbe bits and formulate addresses for each
 * 
+* Description: helps with pass 2 of our program. Allows us to get nixpbe bits and formulate addresses for each
 */
 
 #include "obj_code.h"
 
-#include <sstream>
-#include <iomanip>
 
 // ObjectCode Class Section
 ObjectCode::ObjectCode(int bitCount)
     : data_(0), bitCount_(bitCount) {
 }
 
+// get raw binary value of object code
 uint32_t ObjectCode::getRawValue() const {
     return data_ & widthMask();
 }
 
+// get num of bits
 int ObjectCode::getBitCount() const {
     return bitCount_;
 }
 
+// get hex value of object code
+uint32_t ObjectCode::getHexValue() const
+{
+    return data_ & widthMask();
+}
+
+// set all bits to 0
 void ObjectCode::clear() {
     data_ = 0;
 }
 
-void ObjectCode::setBitCount(int bitCount) {
-    if (bitCount != 8 && bitCount != 16 && bitCount != 24 && bitCount != 32) {
-        throw std::invalid_argument("invalid object-code bit count");
-    }
-
-    bitCount_ = bitCount;
-
-    data_ &= widthMask();
-}
-
+// edit one bit (index 0)
 void ObjectCode::setBit(int logicalIndex, bool value) {
     validateBitIndex(logicalIndex);
 
@@ -54,12 +53,14 @@ void ObjectCode::setBit(int logicalIndex, bool value) {
     data_ &= widthMask();
 }
 
+// get one bit (index 0)
 bool ObjectCode::getBit(int logicalIndex) const {
     validateBitIndex(logicalIndex);
     int shift = logicalToShift(logicalIndex);
     return ((data_ >> shift) & 1u) != 0;
 }
 
+// edit a field of bits at once
 void ObjectCode::setField(int logicalStart, int width, uint32_t value) {
     validateFieldRange(logicalStart, width);
     validateValueFits(width, value);
@@ -85,6 +86,7 @@ void ObjectCode::setField(int logicalStart, int width, uint32_t value) {
     data_ &= widthMask();
 }
 
+// get field of bits at once
 uint32_t ObjectCode::getField(int logicalStart, int width) const {
     validateFieldRange(logicalStart, width);
 
@@ -100,22 +102,31 @@ uint32_t ObjectCode::getField(int logicalStart, int width) const {
     return (data_ >> shift) & mask;
 }
 
+// hex helper (validates hex can fit in nibbles)
 uint32_t ObjectCode::normalizeHexValue(uint32_t value, int hexDigits) const {
     int width = hexDigits * 4;
     validateValueFits(width, value);
     return value;
 }
 
-uint32_t ObjectCode::getHexValue() const
-{
-    return data_ & widthMask();
+// lets a derived class overwrite the object-code length if needed
+void ObjectCode::setBitCount(int bitCount) {
+    if (bitCount != 8 && bitCount != 16 && bitCount != 24 && bitCount != 32) {
+        throw std::invalid_argument("invalid object-code bit count");
+    }
+
+    bitCount_ = bitCount;
+
+    data_ &= widthMask();
 }
 
+// Converts a logical bit index to its corresponding shift position
 int ObjectCode::logicalToShift(int logicalIndex) const {
     validateBitIndex(logicalIndex);
     return bitCount_ - 1 - logicalIndex;
 }
 
+// Generates a bitmask covering the active bit width of the object code
 uint32_t ObjectCode::widthMask() const {
     if (bitCount_ == 32) {
         return 0xFFFFFFFFu;
@@ -123,6 +134,7 @@ uint32_t ObjectCode::widthMask() const {
     return (1u << bitCount_) - 1u;
 }
 
+//make sure that the values make sense before converting, simple error checks
 void ObjectCode::validateBitIndex(int logicalIndex) const {
     if (logicalIndex < 0 || logicalIndex >= bitCount_) {
         throw std::out_of_range("bit index out of range");

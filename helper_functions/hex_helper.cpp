@@ -1,21 +1,23 @@
 /*
-* Purpose: hex_helpers .cpp source file
-* Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Purpose: hex_helper.cpp source file
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
-* Description: Gives us helper functions to handle hex conversions 
-* 
 *
+* Description: Gives us helper functions to handle hex conversions
 */
 
-#include "hex_helpers.h"
-#include <stdexcept>
+#include "hex_helper.h"
+
 #include <cctype>
-#include <sstream>
 #include <iomanip>
+#include <sstream>
+#include <stdexcept>
 
 using namespace std;
 
+// Returns true if operand looks like X'...'
 bool isHexLiteral(const string& operand) {
     return operand.length() >= 4 &&
            operand[0] == 'X' &&
@@ -23,6 +25,7 @@ bool isHexLiteral(const string& operand) {
            operand[operand.length() - 1] == '\'';
 }
 
+// Returns true if operand looks like C'...'
 bool isCharLiteral(const string& operand) {
     return operand.length() >= 4 &&
            operand[0] == 'C' &&
@@ -30,6 +33,7 @@ bool isCharLiteral(const string& operand) {
            operand[operand.length() - 1] == '\'';
 }
 
+// Converts an operand into an integer value.
 int parseOperandValue(const string& operand) {
     if (isHexLiteral(operand)) {
         string hexDigits = operand.substr(2, operand.length() - 3);
@@ -46,6 +50,7 @@ int parseOperandValue(const string& operand) {
     return stoi(operand);   // if not hex, convert to base 10/decimal
 }
 
+// Returns how many bytes a BYTE directive uses.
 int getByteDirectiveLength(const string& operand) {
     if (isHexLiteral(operand)) {
         string hexDigits = operand.substr(2, operand.length() - 3);
@@ -71,12 +76,14 @@ int getByteDirectiveLength(const string& operand) {
     throw invalid_argument("Invalid BYTE operand format: " + operand);
 }
 
+// Converts an integer to a hexadecimal string
 string toHexString(uint32_t value, int width) {
     stringstream ss;
     ss << uppercase << hex << setw(width) << setfill('0') << value;
     return ss.str();
 }
 
+// Converts a BYTE operand to integer value
 int byteObjectValue(const string& operand) {
     if (isHexLiteral(operand)) {
         string hexDigits = operand.substr(2, operand.length() - 3);

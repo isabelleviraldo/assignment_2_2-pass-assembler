@@ -1,10 +1,14 @@
 /*
 * Purpose: main.cpp
-* Authors: Steph Huynh(cssc2524) and Isabella Viraldo(cssc2555)
-* Description: where our main program runs from.
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
+* Class Info: CS 530, Spring 2026
+* Assignment Info: Assignment #2, Limited XE Assembler
+*
+* Description: where our main program runs from
 */
+
 #include <iostream>
-#include <fstream>
 #include <string>
 
 #include "pass1.h"
@@ -18,7 +22,8 @@ int main(int argc, char* argv[]) {
 	// no input files given
 	if (argc < 2)
 	{
-		cerr << "lxe: no input file given.\n";
+		cerr << "lxe: no input file given\n";
+		cerr << "Usage: ./lxe <file_name>\n";
 		cerr << "Terminating program" << endl;
 		return 1;
 	}

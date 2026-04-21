@@ -1,10 +1,12 @@
 /*
-* Purpose: test_object_code.cpp source file
-* *Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Purpose: Testing file for test_obj_code.cpp
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
+*
+* Description: Ensure test_obj_code.cpp runs properly
 */
-
 
 #include <iostream>
 #include <cassert>

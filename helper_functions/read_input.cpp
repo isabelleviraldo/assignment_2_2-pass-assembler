@@ -1,22 +1,21 @@
 /*
 * Purpose: read_input.cpp source file
-* Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
+*
 * Description: parses input file into: label, opcode, operand
-*
-*
-*
 */
 
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
-#include <sstream>
 #include "read_input.h"
-#include "hex_helpers.h"
+
+#include <sstream>
+#include <string>
+
 #include "address_helper.h"
+#include "hex_helper.h"
+
 using namespace std;
 
 
@@ -62,7 +61,7 @@ ParseInput parseSicLine (string line){
 	p.isImmediate = isImmediateOperand(p.operand);		// True if '#'	
 	p.isIndirect = isIndirectOperand(p.operand);		// true if '@'
 	
-	// check for hex literals using functions from hex_helpers
+	// check for hex literals using functions from hex_helper
 	if (isHexLiteral(p.operand)) {
 		// get raw hex string and convert to an int and format to pure hex (Reduces errors)
 		int decVal = parseOperandValue(p.operand);

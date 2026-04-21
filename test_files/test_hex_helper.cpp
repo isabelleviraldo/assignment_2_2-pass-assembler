@@ -1,25 +1,26 @@
 /*
-* Purpose: Testing file for hex_helpers.cpp
-*Authors: Steph Huynh (cssc2524) and Isabelle Viraldo (cssc2555)
+* Purpose: Testing file for hex_helper.cpp
+* Authors: Steph Huynh (cssc2524) (824058671)
+*          Isabelle Viraldo (cssc2555) (828115945)
 * Class Info: CS 530, Spring 2026
 * Assignment Info: Assignment #2, Limited XE Assembler
-* Description: Ensure hex_helpers.cpp runs properly
 *
+* Description: Ensure hex_helper.cpp runs properly
 */
 
 
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <stdexcept>
 
-#include "hex_helpers.h"
+#include "hex_helper.h"
 
 using namespace std;
 
 
 int main()
 {
-    cout << "Running test for hex_helpers" << endl;
+    cout << "Running test for hex_helper" << endl;
 
     // literal checks
     assert(isHexLiteral("X'0F'") == true);
@@ -61,6 +62,6 @@ int main()
     }
     assert(caught == true);
 
-    cout << "SUCCESS test run for hex_helpers" << endl;
+    cout << "SUCCESS test run for hex_helper" << endl;
     return 0;
 }
