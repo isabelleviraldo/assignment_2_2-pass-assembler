@@ -33,6 +33,8 @@ Compile Instructions
 To compile main file, navigate to project directory: 
 	cd ~/a2
 Then run:
+	make clean (to make sure it wipes away old files)
+then run:
 	make
 This will genereate the .exe file:
 	lxe
@@ -40,6 +42,8 @@ This will genereate the .exe file:
 To compile test files, navigate to test directory:
 	cd ~/a2/test_files
 Then run:
+	make clean (make sure it wipes away old files)
+then run:
 	make
 This will generate the .exe files:
 	test_addr test_hex test_obj test_parser
