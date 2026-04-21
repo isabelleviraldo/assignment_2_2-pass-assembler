@@ -8,23 +8,23 @@ Description: README
 File manifest:
 -----------------------------------------------
 - Helper Function folder
-	- address_helper.cpp / .h
-	- hex_helper.cpp / .h
-	- obj_code.cpp / .h
-	- read_input.cpp / .h
+	- address_helper.cpp / .h  	--> handles addressing modes (PC/base/immediate)
+	- hex_helper.cpp / .h      	--> handles hex parsing and formatting
+	- obj_code.cpp / .h        	--> builds object code using bit-level manipulation
+	- read_input.cpp / .h      	--> parses SIC input lines into structured data
 
 - test_files folder
-	- test_address_helper.cpp
-	- test_hex_helper.cpp
-	- test_obj_code.cpp
-	- test_parser.cpp
+	- test_address_helper.cpp  	--> unit tests for address calculations
+	- test_hex_helper.cpp      	--> unit tests for hex parsing/formatting
+	- test_obj_code.cpp        	--> unit tests for object code generation
+	- test_parser.cpp          	--> unit tests for input parsing
 
-- main.cpp
-- Opcode_Dictionary.cpp / .h
-- pass1.cpp / .h
-- pass2.cpp / .h
+- main.cpp                   	--> entry point, runs pass1 and pass2
+- Opcode_Dictionary.cpp / .h 	--> stores opcode formats and register mappings
+- pass1.cpp / .h             	--> builds SYMTAB and intermediate listing file
+- pass2.cpp / .h             	--> generates final object code listing
 - README
-- input_file.sic
+- input_file.sic             	--> sample SIC/XE input file
 
 
 ----------------------------------------
@@ -60,6 +60,14 @@ To run test programs:
 	./test_obj 
 	./test_parser
 
+Output Files:
+- .l file: listing file containing addresses and final object code
+- .st file: symbol table including labels and literal table
+
+Notes:
+- The program overwrites the .l file generated in pass1 with the final pass2 output
+- Input files must follow SIC/XE formatting conventions
+
 ----------------------------------------
 Design Decisions
 ----------------------------------------
@@ -76,19 +84,35 @@ calculate the machine code, and create the final listing file.
 We separated each part of our program into test_files and helper_functions and the main directory contains the pass1, pass2, and opcode table that we need. 
 This ensures that we keep our codes neat and so we can locate certain features that we may need to fix. It ensures scalability and makes our code easier to read.
 
+Modular Design: Each helper file focuses on a single responsibility (parsing, addressing, encoding), which improves debugging and maintainability.
+
+Static Lookup Tables: Opcode and register mappings are implemented using static const hash tables to ensure fast lookup and prevent unnecessary reinitialization.
+
+Intermediate File Strategy: Instead of storing all data in memory, we use a listing file between passes. This mimics real assembler design and simplifies debugging.
+
+Error Handling: Basic validation is included (invalid opcodes, registers, addressing failures), with error messages printed to stderr.
+
 
 -----------------------------------------
 Bugs
 -----------------------------------------
-No known bugs. The assembler correctly handles different addressing modes and such.
+Edge Cases:
+- Extremely large immediate values may exceed field size and trigger errors
+- Input formatting must be consistent (tabs vs spaces) for proper parsing
 
 -----------------------------------------
-Lesons Learned
+Lessons Learned
 -----------------------------------------
-Flag Logic: implementing how to incorporate NIXPBE flags and how to change from format 3/4
-File I/O: building the intermediate files of .l and .st and ensuring that formatting stays compatiable between compiler passes
+Flag Logic: implementing how to incorporate NIXBPE flags and how to change from format 3/4
+
+File I/O: building the intermediate files of .l and .st and ensuring that formatting stays compatible between compiler passes
+
 Displacement: Understanding how to use LOCCTR and handling how to calculate displacement
-Literal Table: 
 
+Literal Table: Managing literal pools and ensuring literals are assigned addresses correctly, 
+especially with LTORG and END handling
+
+Testing Strategy: Writing separate unit tests for each helper module helped isolate bugs early 
+and verify correctness incrementally
 
 
